@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'scoring' => [
+        'api_key' => env('SCORING_API_KEY'),
+    ],
+
+    'bitrix' => [
+        'rest_key' => env('BITRIX_REST_KEY'),
+    ]
+
 ];
