@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Log;
 class Scoring
 {
 
-
-  public static function handler(int $leadId, array $phones): array
+  public static function handler(int $leadId, string $phones): array
   {
     $points = [];
-
+    $phones = explode(",", $phones);
+    
     foreach ($phones as $phone) {
       $response = Http::withHeaders([
         "Accept" => "application/json",

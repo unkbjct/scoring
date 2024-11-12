@@ -5,11 +5,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/points', function (Request $request) {
-
     $request->validate([
         'lead_id' => 'required',
-        'phone' => 'required|array|min:1',
+        'phones' => 'required|string',
     ]);
-
-    return response()->json(Scoring::handler($request->lead_id, $request->phone));
+    
+    $leadId = (int) explode("_", $request->lead_id)[1];
+    return response()->json(Scoring::handler($leadId, $request->phones));
 });
