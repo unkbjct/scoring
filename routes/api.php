@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/points', function (Request $request) {
     $request->validate([
         'lead_id' => 'required',
-        'phones' => 'required|string',
     ]);
     
     $leadId = (int) explode("_", $request->lead_id)[1];
-    return response()->json(Scoring::handler($leadId, $request->phones));
+    return response()->json(Scoring::handler($leadId));
 });
